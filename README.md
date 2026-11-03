@@ -1,12 +1,24 @@
-# Orchard
+<p align="center">
+  <img src="assets/banner.jpg" alt="Orchard: extra drivers, fixes and a Mac-like desktop for Linux on Apple silicon Macs" width="100%">
+</p>
 
-Extra drivers, fixes and a Mac-like desktop for Linux on Apple silicon Macs.
+<p align="center">
+  <a href="https://github.com/zainnobody/apple-silicon-linux-kit/blob/main/GUIDE.md"><b>Guide</b></a> ·
+  <a href="#quick-start"><b>Quick start</b></a> ·
+  <a href="https://github.com/zainnobody/apple-silicon-linux-kit/blob/main/docs/claude-code-setup.md"><b>Set up with Claude Code</b></a> ·
+  <a href="https://github.com/zainnobody/apple-silicon-linux-kit/blob/main/docs/test-results-2026-11.md"><b>Test results</b></a>
+</p>
+
+<div align="center">
+
+[![License: GPL-2.0](https://img.shields.io/badge/license-GPL--2.0-blue)](LICENSE) ![Tested on: M3 Pro J516S](https://img.shields.io/badge/tested%20on-M3%20Pro%20J516S-555) ![Community project](https://img.shields.io/badge/community-project-2f8f4e)
+
+</div>
 
 Orchard builds on Fedora Asahi Remix. It adds the native GPU driver stack, Touch ID, faster memory, hardware video decode, fan control and more. Each part comes with install scripts that you can undo, and with test results.
 
-[![License: GPL-2.0](https://img.shields.io/badge/license-GPL--2.0-blue)](LICENSE) ![Tested on: M3 Pro J516S](https://img.shields.io/badge/tested%20on-M3%20Pro%20J516S-555) ![Status: unofficial](https://img.shields.io/badge/Asahi%20Linux-unofficial-orange)
 
-> **Unofficial.** Orchard is not part of Asahi Linux. The Asahi developers do not support it. Report problems in these repositories, not to Asahi.
+> **Community project.** Orchard builds on Asahi Linux but is not part of it, and the Asahi developers do not support it. Please report problems in these repositories, not to Asahi.
 
 <table>
 <tr>
