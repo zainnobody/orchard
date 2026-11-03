@@ -1,0 +1,11 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Driver, guide or Touch ID problem
+    url: https://github.com/zainnobody/apple-silicon-linux-kit/issues/new/choose
+    about: Kernel patches, Mesa, Touch ID, the guide, and test reports from other Macs.
+  - name: Installer, kernel RPM or desktop problem
+    url: https://github.com/zainnobody/apple-silicon-linux-desktop/issues/new/choose
+    about: The agx installer, the kernel RPM, the KDE desktop and the lock screen.
+  - name: Local AI or Neural Engine problem
+    url: https://github.com/zainnobody/apple-silicon-neural-engine/issues/new/choose
+    about: The llama.cpp fixes and the Neural Engine research.
