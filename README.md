@@ -18,6 +18,25 @@ Orchard builds on Fedora Asahi Remix. It adds the native GPU driver stack, Touch
 </tr>
 </table>
 
+## How it fits together
+
+```mermaid
+flowchart TB
+    mac["Apple silicon Mac<br/>tested: MacBook Pro 16-inch M3 Pro"]
+    boot["Boot chain<br/>m1n1 and U-Boot from Asahi"]
+    kernel["Linux kernel with the kit patches<br/>GPU firmware pin, memory floor, fans,<br/>Bluetooth resume, AV1 fix, Touch ID"]
+    mesa["Native GPU driver (Mesa)<br/>OpenGL 4.6 and Vulkan 1.4"]
+    touch["Touch ID<br/>fprintd and PAM"]
+    kde["KDE Plasma<br/>Mac-like desktop and lock screen"]
+    ai["Local AI<br/>llama.cpp on the GPU"]
+    mac --> boot --> kernel
+    kernel --> mesa
+    kernel --> touch
+    mesa --> kde
+    touch --> kde
+    mesa --> ai
+```
+
 ## The projects
 
 | Repository | What it is | Start with |
@@ -49,6 +68,54 @@ Not done yet: sleep drains the battery, video encode uses the CPU, and the Neura
 2. Follow the [step-by-step guide](https://github.com/zainnobody/apple-silicon-linux-kit/blob/main/GUIDE.md#5-step-by-step). Each step has a verify check and an undo step.
 3. Or let Claude Code do it with you: [connect a second Mac and paste the prompt](https://github.com/zainnobody/apple-silicon-linux-kit/blob/main/docs/claude-code-setup.md).
 4. Check your install with the self-test: `tests/m3-selftest.sh` in the kit.
+
+## Quick start
+
+On the Mac that runs Fedora Asahi Remix, get the three projects side by side:
+
+```bash
+mkdir -p ~/apple-silicon-linux && cd ~/apple-silicon-linux
+```
+
+```bash
+git clone https://github.com/zainnobody/apple-silicon-linux-kit.git agx-linux-kit
+```
+
+```bash
+git clone https://github.com/zainnobody/apple-silicon-linux-desktop.git distro-pack
+```
+
+```bash
+git clone https://github.com/zainnobody/apple-silicon-neural-engine.git ane-linux
+```
+
+See what your Mac supports and every install step, in order. These two commands change nothing:
+
+```bash
+distro-pack/agx detect
+```
+
+```bash
+distro-pack/agx plan-install
+```
+
+Then follow [the guide](https://github.com/zainnobody/apple-silicon-linux-kit/blob/main/GUIDE.md#5-step-by-step). After each reboot and at the end, check the Mac:
+
+```bash
+agx-linux-kit/tests/m3-selftest.sh
+```
+
+## Let Claude Code help
+
+Claude Code can run the guide with you from a second Mac. It runs the commands, checks each result and stops at every step that needs you. First [connect the second Mac over SSH](https://github.com/zainnobody/apple-silicon-linux-kit/blob/main/docs/claude-code-setup.md#option-a-connect-a-mac-to-the-m3). Then paste this prompt:
+
+```text
+Install Orchard (github.com/zainnobody/orchard) on my Apple silicon Mac that runs
+Fedora Asahi Remix. It is reachable with `ssh m3`. Use the full prompt and rules in
+docs/claude-code-setup.md of apple-silicon-linux-kit. Read GUIDE.md first and show me
+a plan. Stop before every sudo command, every reboot and every Touch ID step.
+Never ask for or type my password.
+```
 
 ## Other Macs
 
