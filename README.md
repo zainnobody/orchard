@@ -22,19 +22,23 @@ Orchard builds on Fedora Asahi Remix. It adds the native GPU driver stack, Touch
 
 ```mermaid
 flowchart TB
-    mac["Apple silicon Mac<br/>tested: MacBook Pro 16-inch M3 Pro"]
-    boot["Boot chain<br/>m1n1 and U-Boot from Asahi"]
-    kernel["Linux kernel with the kit patches<br/>GPU firmware pin, memory floor, fans,<br/>Bluetooth resume, AV1 fix, Touch ID"]
-    mesa["Native GPU driver (Mesa)<br/>OpenGL 4.6 and Vulkan 1.4"]
-    touch["Touch ID<br/>fprintd and PAM"]
-    kde["KDE Plasma<br/>Mac-like desktop and lock screen"]
-    ai["Local AI<br/>llama.cpp on the GPU"]
+    mac(["Apple silicon Mac<br/><small>tested: MacBook Pro 16-inch M3 Pro</small>"]):::hw
+    boot("Boot chain<br/><small>m1n1 and U-Boot from Asahi</small>"):::hw
+    kernel("Linux kernel + kit patches<br/><small>GPU firmware pin, memory floor, fans,<br/>Bluetooth resume, AV1 fix, Touch ID</small>"):::core
+    mesa("Native GPU driver<br/><small>Mesa: OpenGL 4.6, Vulkan 1.4</small>"):::core
+    touch("Touch ID<br/><small>fprintd and PAM</small>"):::core
+    kde("KDE Plasma<br/><small>Mac-like desktop and lock screen</small>"):::ui
+    ai("Local AI<br/><small>llama.cpp on the GPU</small>"):::ai
     mac --> boot --> kernel
-    kernel --> mesa
-    kernel --> touch
+    kernel --> mesa & touch
     mesa --> kde
     touch --> kde
     mesa --> ai
+    classDef hw fill:#e8f0fe,stroke:#4a72d9,stroke-width:1.5px,color:#14264d
+    classDef core fill:#e6f4ea,stroke:#2f8f4e,stroke-width:1.5px,color:#0f3a1f
+    classDef ui fill:#f3e8fd,stroke:#8e44c9,stroke-width:1.5px,color:#38174f
+    classDef ai fill:#fdeee0,stroke:#d9822b,stroke-width:1.5px,color:#4a2706
+    classDef todo fill:#f1f3f4,stroke:#9aa0a6,stroke-width:1.5px,stroke-dasharray:5 4,color:#3c4043
 ```
 
 ## The projects
