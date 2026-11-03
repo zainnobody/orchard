@@ -14,7 +14,7 @@ Orchard builds on Fedora Asahi Remix. It adds the native GPU driver stack, Touch
 <td><img src="screenshots/lock-screen.jpg" alt="Flat lock screen with a password field and a fingerprint hint"></td>
 </tr>
 <tr>
-<td colspan="2"><img src="screenshots/konsole-gpu.jpg" alt="Terminal showing the OpenGL 4.6 and Vulkan 1.4 driver for the Apple M3 Pro GPU"></td>
+<td colspan="2" align="center"><img width="560" src="screenshots/konsole-gpu.jpg" alt="Terminal showing the OpenGL 4.6 and Vulkan 1.4 driver for the Apple M3 Pro GPU"></td>
 </tr>
 </table>
 
